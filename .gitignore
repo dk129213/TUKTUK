@@ -1,0 +1,20 @@
+# Original uncompressed images kept locally as a backup (do not commit — ~14 MB)
+assets/_originals/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# Stray uploads / scratch
+uploads/
+
+# Node (just in case)
+node_modules/
+
+# Claude Code local state
+.claude/
