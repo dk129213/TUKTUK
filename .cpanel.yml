@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ragusat/public_html/
+    - /bin/cp -R index.html $DEPLOYPATH
+    - /bin/cp -R privacy.html $DEPLOYPATH
+    - /bin/cp -R send.php $DEPLOYPATH
+    - /bin/cp -R config.example.php $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
