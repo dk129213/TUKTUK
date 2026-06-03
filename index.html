@@ -913,6 +913,10 @@
     display:flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
     font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(243,237,225,0.4);
   }
+  .legal a { color: rgba(243,237,225,0.7); text-decoration: underline; text-underline-offset: 2px; }
+  .legal a:hover { color: var(--terra); }
+  .form-note a { color: rgba(243,237,225,0.85); text-decoration: underline; text-underline-offset: 2px; }
+  .form-note a:hover { color: var(--terra); }
   @media (max-width: 900px) {
     .bigmark-inner { grid-template-columns: 1fr; text-align: left; }
     .bigmark .title { text-align: left; }
@@ -1394,6 +1398,7 @@
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <p class="form-note">(Please mention if you want a private tour in the message.)</p>
+        <p class="form-note">By sending this inquiry you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
       </div>
 
       <div id="formStatus" class="form-status"></div>
@@ -1443,7 +1448,7 @@
     </div>
 
     <div class="legal">
-      <span>© 2026 Ragusa Tuk Tours · Private tours of Dubrovnik</span>
+      <span>© 2026 Ragusa Tuk Tours · Private tours of Dubrovnik · <a href="privacy.html">Privacy Policy</a></span>
       <span>An independent family-run atelier · Crafted in Dalmatia</span>
     </div>
   </div>
