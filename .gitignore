@@ -17,6 +17,7 @@ uploads/
 node_modules/
 
 # Secrets — real mail credentials live only on the server, never in Git
+.env
 config.php
 phpmailer/
 

@@ -18,14 +18,54 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     exit;
 }
 
-// --- Load credentials (kept out of Git) ---
-$configFile = __DIR__ . '/config.php';
-if (!is_file($configFile)) {
+// --- Load credentials from a .env file kept OUTSIDE the web root ---
+function load_env(array $paths) {
+    foreach ($paths as $path) {
+        if (!is_file($path) || !is_readable($path)) {
+            continue;
+        }
+        $vars = [];
+        foreach (file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+            $line = trim($line);
+            if ($line === '' || $line[0] === '#') {
+                continue;
+            }
+            $pos = strpos($line, '=');
+            if ($pos === false) {
+                continue;
+            }
+            $key = trim(substr($line, 0, $pos));
+            $val = trim(substr($line, $pos + 1));
+            // Strip optional surrounding quotes (App Password may contain spaces — keep them)
+            if (strlen($val) >= 2 && ($val[0] === '"' || $val[0] === "'") && substr($val, -1) === $val[0]) {
+                $val = substr($val, 1, -1);
+            }
+            $vars[$key] = $val;
+        }
+        return $vars;
+    }
+    return null;
+}
+
+$env = load_env([
+    __DIR__ . '/../.env',  // preferred: above the web root, unreachable via browser
+    __DIR__ . '/.env',     // fallback: same folder as send.php
+]);
+
+if ($env === null
+    || empty($env['GMAIL_USER'])
+    || empty($env['GMAIL_APP_PASSWORD'])
+    || empty($env['MAIL_INBOX'])) {
     http_response_code(500);
     echo json_encode(['ok' => false, 'error' => 'Server is not configured yet.']);
     exit;
 }
-$config = require $configFile;
+
+$config = [
+    'gmail_user'         => $env['GMAIL_USER'],
+    'gmail_app_password' => $env['GMAIL_APP_PASSWORD'],
+    'inbox'              => $env['MAIL_INBOX'],
+];
 
 // --- Load PHPMailer ---
 require __DIR__ . '/phpmailer/src/Exception.php';
