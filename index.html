@@ -40,7 +40,6 @@
 <link rel="preload" as="image" href="assets/tuktuk-hero.webp" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
 <!-- Structured data: TravelAgency + Tour offerings -->
 <script type="application/ld+json">
@@ -1392,6 +1391,12 @@
         <textarea id="message" name="message" placeholder=" " required></textarea>
       </div>
 
+      <!-- Honeypot: hidden from humans, bots fill it and get silently dropped -->
+      <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+        <label for="company">Company (leave blank)</label>
+        <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="form-actions">
         <button type="submit" class="btn btn-primary" id="sendBtn">
           Send inquiry
@@ -1458,15 +1463,8 @@
 (function() {
   'use strict';
 
-  // EmailJS (init once the deferred lib has loaded)
+  // Contact form → posts to send.php (Gmail SMTP via PHPMailer on the server)
   try {
-    const EMAILJS_PUBLIC_KEY  = 's5eDAPgV5ektmJFSs';
-    const EMAILJS_SERVICE_ID  = 'service_jiygl2b';
-    const EMAILJS_TEMPLATE_ID = 'template_7zpfiat';
-    const initEmailJS = () => { if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY); };
-    if (window.emailjs) initEmailJS();
-    else window.addEventListener('load', initEmailJS, { once: true });
-
     const form = document.getElementById('luxuryForm');
     const sendBtn = document.getElementById('sendBtn');
     const status = document.getElementById('formStatus');
@@ -1477,6 +1475,7 @@
       const email = document.getElementById('email').value.trim();
       const tour = document.getElementById('tour').value;
       const message = document.getElementById('message').value.trim();
+      const company = (document.getElementById('company') || {}).value || ''; // honeypot
 
       status.classList.remove('show', 'error');
 
@@ -1491,30 +1490,32 @@
         return;
       }
 
-      const params = { name, email, title: tour || 'Undecided', when: 'Unspecified', message };
       sendBtn.disabled = true;
       sendBtn.style.opacity = 0.7;
       const originalHTML = sendBtn.innerHTML;
       sendBtn.innerHTML = 'Sending…';
 
-      if (!window.emailjs) {
-        // Graceful offline preview fallback
-        setTimeout(() => {
-          status.textContent = 'Letter saved. We\'ll be in touch within a few hours.';
-          status.classList.add('show');
-          form.reset();
-          sendBtn.disabled = false;
-          sendBtn.style.opacity = 1;
-          sendBtn.innerHTML = originalHTML;
-        }, 600);
-        return;
-      }
+      const body = new FormData();
+      body.append('name', name);
+      body.append('email', email);
+      body.append('tour', tour || '');
+      body.append('message', message);
+      body.append('company', company);
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-        .then(() => {
-          status.textContent = 'Letter sent. We\'ll be in touch within a few hours.';
-          status.classList.add('show');
-          form.reset();
+      fetch('send.php', { method: 'POST', body })
+        .then(async (res) => {
+          let data = {};
+          try { data = await res.json(); } catch (_) {}
+          if (res.ok && data.ok) {
+            status.textContent = 'Letter sent. We\'ll be in touch within a few hours.';
+            status.classList.add('show');
+            form.reset();
+          } else {
+            status.textContent = (data && data.error)
+              ? data.error
+              : 'Something went sideways. Please email us directly at Ragusatuktours@gmail.com';
+            status.classList.add('show', 'error');
+          }
         })
         .catch(() => {
           status.textContent = 'Something went sideways. Please email us directly at Ragusatuktours@gmail.com';

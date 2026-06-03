@@ -16,5 +16,9 @@ uploads/
 # Node (just in case)
 node_modules/
 
+# Secrets — real mail credentials live only on the server, never in Git
+config.php
+phpmailer/
+
 # Claude Code local state
 .claude/
