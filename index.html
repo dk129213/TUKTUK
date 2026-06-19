@@ -253,7 +253,8 @@
   .nav-logo .marque em { font-style: italic; color: var(--olive); }
   .nav-cta {
     display: inline-flex; align-items: center; gap: 12px;
-    background: var(--olive); color: var(--ivory);
+    background: var(--olive-dk); color: var(--ivory);
+    transform: translateY(-1px);
     padding: 11px 10px 11px 24px;
     font-family: 'Inter', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
@@ -273,6 +274,7 @@
     width: 28px; height: 28px;
     background: #fff; color: var(--olive-dk);
     border-radius: 999px;
+    transform: translateX(2px) rotate(-8deg);
     transition: transform .35s cubic-bezier(.2,.9,.3,1), background .3s;
   }
   .nav-cta:hover .arrow-chip { transform: translateX(2px) rotate(-8deg); background: #fff; }
