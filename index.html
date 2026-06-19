@@ -14,8 +14,6 @@
 <!-- Geo tagging -->
 <meta name="geo.region" content="HR-19" />
 <meta name="geo.placename" content="Dubrovnik" />
-<meta name="geo.position" content="42.6507;18.0944" />
-<meta name="ICBM" content="42.6507, 18.0944" />
 
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="website" />
@@ -23,7 +21,7 @@
 <meta property="og:url" content="https://ragusatuktours.hr/" />
 <meta property="og:title" content="Ragusa Tuk Tours — Private Tuk Tuk Tours of Dubrovnik" />
 <meta property="og:description" content="Private, eco-friendly Tuk Tuk journeys through Dubrovnik. The Old Town, Mount Srđ, hidden coves and panoramic Adriatic views — with a local guide." />
-<meta property="og:image" content="https://ragusatuktours.hr/assets/tuktuk-hero.webp" />
+<meta property="og:image" content="https://ragusatuktours.hr/assets/tuktuk-hero-wide.webp" />
 <meta property="og:image:alt" content="Our electric tuk tuk overlooking Dubrovnik Old Town and the Adriatic" />
 <meta property="og:locale" content="en_US" />
 
@@ -31,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ragusa Tuk Tours — Private Tuk Tuk Tours of Dubrovnik" />
 <meta name="twitter:description" content="Private, eco-friendly Tuk Tuk journeys through Dubrovnik. Old Town, Mount Srđ, hidden coves." />
-<meta name="twitter:image" content="https://ragusatuktours.hr/assets/tuktuk-hero.webp" />
+<meta name="twitter:image" content="https://ragusatuktours.hr/assets/tuktuk-hero-wide.webp" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="assets/logo2.png" />
@@ -39,7 +37,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="image" href="assets/tuktuk-hero.webp" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/tuktuk-hero.webp" media="(max-width: 900px)" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/tuktuk-hero-wide.webp" media="(min-width: 901px)" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 
@@ -51,7 +50,7 @@
   "name": "Ragusa Tuk Tours",
   "alternateName": "Ragusa Tuk Tours Dubrovnik",
   "description": "Private, eco-friendly Tuk Tuk tours of Dubrovnik — the Old Town, Mount Srđ, hidden coves and panoramic Adriatic viewpoints, told by local guides.",
-  "image": "assets/tuktuk-hero.webp",
+  "image": "https://ragusatuktours.hr/assets/tuktuk-hero-wide.webp",
   "logo": "assets/logo.webp",
   "telephone": ["+385919351909", "+385994418363"],
   "email": "Ragusatuktours@gmail.com",
@@ -61,11 +60,6 @@
     "addressLocality": "Dubrovnik",
     "addressRegion": "Dubrovnik-Neretva",
     "addressCountry": "HR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 42.6507,
-    "longitude": 18.0944
   },
   "areaServed": {
     "@type": "City",
@@ -78,7 +72,7 @@
       {
         "@type": "Offer",
         "priceCurrency": "EUR",
-        "price": "90",
+        "price": "50",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
           "@type": "TouristTrip",
@@ -95,6 +89,7 @@
       {
         "@type": "Offer",
         "priceCurrency": "EUR",
+        "price": "50",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
           "@type": "TouristTrip",
@@ -111,6 +106,7 @@
       {
         "@type": "Offer",
         "priceCurrency": "EUR",
+        "price": "50",
         "availability": "https://schema.org/InStock",
         "itemOffered": {
           "@type": "TouristTrip",
@@ -258,26 +254,24 @@
   .nav-cta {
     display: inline-flex; align-items: center; gap: 12px;
     background: var(--olive); color: var(--ivory);
-    padding: 11px 8px 11px 22px;
+    padding: 11px 10px 11px 24px;
     font-family: 'Inter', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
     text-decoration: none; border-radius: 999px;
     transition: background .3s ease, transform .3s ease, box-shadow .3s ease, padding .3s ease;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 6px 18px -8px rgba(90, 100, 50, 0.55);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 10px 22px -8px rgba(90, 100, 50, 0.7);
     border: 1px solid var(--olive-dk);
     position: relative;
   }
   .nav-cta:hover {
     background: var(--olive-dk);
     transform: translateY(-1px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 10px 22px -8px rgba(90, 100, 50, 0.7);
-    padding-right: 10px;
-    padding-left: 24px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 14px 26px -8px rgba(90, 100, 50, 0.78);
   }
   .nav-cta .arrow-chip {
     display: inline-flex; align-items: center; justify-content: center;
     width: 28px; height: 28px;
-    background: var(--ivory); color: var(--olive-dk);
+    background: #fff; color: var(--olive-dk);
     border-radius: 999px;
     transition: transform .35s cubic-bezier(.2,.9,.3,1), background .3s;
   }
@@ -371,6 +365,9 @@
     object-fit: cover;
     object-position: center 40%;
     filter: saturate(0.96) contrast(1.02) brightness(0.9);
+  }
+  @media (min-width: 901px) {
+    .hero-media img { object-position: center 52%; }
   }
   .hero-media::after {
     content:''; position:absolute; inset:0;
@@ -504,7 +501,7 @@
   }
 
   .intro {
-    padding: 80px 0 100px;
+    padding: 80px 40px 100px;
   }
   .intro-head h2 {
     font-size: clamp(42px, 6.5vw, 92px);
@@ -534,6 +531,7 @@
     color: var(--olive);
   }
   @media (max-width: 900px) {
+    .intro { padding: 56px 22px 64px; }
     .intro-body { grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
   }
 
@@ -1016,7 +1014,10 @@
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="top">
   <div class="hero-media">
-    <img src="assets/tuktuk-hero.webp" alt="Our electric tuk tuk overlooking Dubrovnik Old Town and the Adriatic" fetchpriority="high" decoding="async" />
+    <picture>
+      <source media="(min-width: 901px)" srcset="assets/tuktuk-hero-wide.webp" />
+      <img src="assets/tuktuk-hero.webp" alt="Our electric tuk tuk overlooking Dubrovnik Old Town and the Adriatic" fetchpriority="high" decoding="async" />
+    </picture>
   </div>
   <div class="hero-grid">
     <div class="hero-kicker">
@@ -1058,7 +1059,7 @@
       <span class="star">—</span>
       <span>Electric &amp; quiet</span>
       <span class="star">—</span>
-      <span>Max. 5 <em>guests</em></span>
+      <span>Max. 4 <em>guests</em></span>
       <span class="star">—</span>
       <span>Door-to-door</span>
       <span class="star">—</span>
@@ -1068,7 +1069,7 @@
       <span class="star">—</span>
       <span>Electric &amp; quiet</span>
       <span class="star">—</span>
-      <span>Max. 5 <em>guests</em></span>
+      <span>Max. 4 <em>guests</em></span>
       <span class="star">—</span>
       <span>Door-to-door</span>
       <span class="star">—</span>
@@ -1149,7 +1150,7 @@
       <h3>Sightseeing tour of <em>Dubrovnik</em></h3>
       <div class="meta">
         <span class="pill">120 min</span>
-        <span class="pill">1 – 5 Guests</span>
+        <span class="pill">1 – 4 Guests</span>
       </div>
       <p>
         Discover Dubrovnik from a unique perspective on a comfortable Tuk Tuk tour that blends history, nature, and breathtaking views. Starting with a scenic drive across the Franjo Tuđman Bridge, you’ll enjoy beautiful sights of the Adriatic and nearby islands. As we continue, enjoy the striking landscape of Mount Srđ, where panoramic views reveal the Old Town, Lokrum Island, and the sparkling coastline below. With fresh air, open views, and plenty of photo stops, this tour offers a perfect balance of sightseeing and comfort. A great choice for visitors who want memorable views without long walks.
@@ -1170,7 +1171,7 @@
       <h3>The <em>Golden Hour</em> by tuk tuk</h3>
       <div class="meta">
         <span class="pill">120 min</span>
-        <span class="pill">1 – 5 Guests</span>
+        <span class="pill">1 – 4 Guests</span>
       </div>
       <p>
         Hop on a Tuk Tuk and explore Dubrovnik’s most beautiful viewpoints in a fun and relaxed way. This expertly timed tour captures the splendor of the Sun sailing beyond the horizon. Taking you across the Franjo Tuđman Bridge, offering stunning views of the Adriatic Sea and surrounding islands. As the Sun goes down, the ride continues up toward Mount Srđ, where a marvelous panoramic view awaits just as the sky lights up in sunset tones. This easy and comfortable experience is perfect for photographers, first-time visitors, and anyone looking to enjoy Dubrovnik’s iconic golden hour without the crowds.
@@ -1191,7 +1192,7 @@
       <h3>Dubrovnik tale <em>by tuk tuk</em></h3>
       <div class="meta">
         <span class="pill">120 min + 60 min</span>
-        <span class="pill">1 – 5 Guests</span>
+        <span class="pill">1 – 4 Guests</span>
       </div>
       <p>
         Tale of Dubrovnik is a must-do Tuk Tuk tour led by a knowledgeable local guide who brings the city’s views and history to life. Comfortable, authentic, and perfectly paced, this tour combines panoramic drives over the Franjo Tudman Bridge with stunning viewpoints from Mount Srd. The journey finishes in the Old Town, where centuries of history, legends, and local stories are revealed by someone who truly knows the city. With unforgettable views and insider knowledge, Tale of Dubrovnik is the perfect introduction to Dubrovnik.
@@ -1253,7 +1254,7 @@
     <div class="stop">
       <div class="t">03</div>
       <div class="n"><em>Intimate</em><br/>Small Groups</div>
-      <div class="d">One to five guests at a time. Every seat is a window seat.</div>
+      <div class="d">One to four guests at a time. Every seat is a window seat.</div>
     </div>
     <div class="stop">
       <div class="t">04</div>
@@ -1463,7 +1464,7 @@
         <address style="font-style: normal; line-height: 2;">
           Pile Gate<br/>
           Dubrovnik, Croatia<br/>
-          <a href="https://maps.google.com/?q=42.6507,18.0944" target="_blank" rel="noopener">42.6507° N · 18.0944° E</a>
+          <a href="https://maps.google.com/?q=Pile+Gate+Dubrovnik" target="_blank" rel="noopener">View meeting point on map</a>
         </address>
       </div>
       <div>
