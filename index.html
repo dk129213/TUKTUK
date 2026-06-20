@@ -220,6 +220,11 @@
     background: var(--ivory);
     border-bottom: 1px solid var(--rule-soft);
     backdrop-filter: blur(8px);
+    transition: box-shadow .3s ease, background .3s ease;
+  }
+  .nav.scrolled {
+    background: rgba(253, 250, 243, 0.92);
+    box-shadow: 0 10px 30px -14px rgba(46, 43, 38, 0.4);
   }
   .nav-inner {
     display: grid;
@@ -227,7 +232,9 @@
     align-items: center;
     padding: 18px 40px;
     gap: 28px;
+    transition: padding .3s ease;
   }
+  .nav.scrolled .nav-inner { padding-top: 11px; padding-bottom: 11px; }
   .nav-left, .nav-right { display:flex; align-items:center; gap: 28px; }
   .nav-right { justify-content: flex-end; }
   .nav a:not(.nav-cta) {
@@ -252,9 +259,9 @@
   }
   .nav-logo .marque em { font-style: italic; color: var(--olive); }
   .nav-cta {
-    display: inline-flex; align-items: center; gap: 15px;
+    display: inline-flex; align-items: center; gap: 12px;
     background: var(--olive); color: var(--ivory);
-    padding: 12px 14px 12px 28px;
+    padding: 8px 10px 8px 24px;
     font-family: 'Inter', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
     text-decoration: none; border-radius: 999px;
@@ -270,13 +277,13 @@
   }
   .nav-cta .arrow-chip {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px;
+    width: 28px; height: 28px;
     background: #fff; color: var(--olive-dk);
     border-radius: 999px;
     transition: transform .3s cubic-bezier(.2,.9,.3,1);
   }
   .nav-cta:hover .arrow-chip { transform: translateX(3px); }
-  .nav-cta .arrow-chip svg { width: 14px; height: 14px; }
+  .nav-cta .arrow-chip svg { width: 13px; height: 13px; }
 
   /* Hamburger */
   .nav-burger {
@@ -1593,6 +1600,14 @@
       if (y > 800) return;
       heroMedia.style.transform = `translateY(${y * 0.15}px)`;
     }, { passive: true });
+  }
+
+  // Nav: float with a shadow once the page is scrolled
+  const navEl = document.querySelector('.nav');
+  if (navEl) {
+    const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 })();
 </script>
