@@ -252,33 +252,31 @@
   }
   .nav-logo .marque em { font-style: italic; color: var(--olive); }
   .nav-cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: var(--olive-dk); color: var(--ivory);
-    transform: translateY(-1px);
-    padding: 11px 10px 11px 24px;
+    display: inline-flex; align-items: center; gap: 13px;
+    background: var(--olive); color: var(--ivory);
+    padding: 9px 9px 9px 24px;
     font-family: 'Inter', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
     text-decoration: none; border-radius: 999px;
-    transition: background .3s ease, transform .3s ease, box-shadow .3s ease, padding .3s ease;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 10px 22px -8px rgba(90, 100, 50, 0.7);
     border: 1px solid var(--olive-dk);
+    box-shadow: 0 6px 16px -8px rgba(90, 100, 50, 0.55);
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
     position: relative;
   }
   .nav-cta:hover {
     background: var(--olive-dk);
     transform: translateY(-1px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 14px 26px -8px rgba(90, 100, 50, 0.78);
+    box-shadow: 0 12px 24px -8px rgba(90, 100, 50, 0.72);
   }
   .nav-cta .arrow-chip {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 28px; height: 28px;
+    width: 30px; height: 30px;
     background: #fff; color: var(--olive-dk);
     border-radius: 999px;
-    transform: translateX(2px) rotate(-8deg);
-    transition: transform .35s cubic-bezier(.2,.9,.3,1), background .3s;
+    transition: transform .3s cubic-bezier(.2,.9,.3,1);
   }
-  .nav-cta:hover .arrow-chip { transform: translateX(2px) rotate(-8deg); background: #fff; }
-  .nav-cta .arrow-chip svg { width: 13px; height: 13px; }
+  .nav-cta:hover .arrow-chip { transform: translateX(3px); }
+  .nav-cta .arrow-chip svg { width: 14px; height: 14px; }
 
   /* Hamburger */
   .nav-burger {
