@@ -230,7 +230,7 @@
   }
   .nav-left, .nav-right { display:flex; align-items:center; gap: 28px; }
   .nav-right { justify-content: flex-end; }
-  .nav a {
+  .nav a:not(.nav-cta) {
     color: var(--ink);
     text-decoration: none;
     font-size: 13px;
@@ -238,11 +238,11 @@
     position: relative;
     padding: 4px 0;
   }
-  .nav a::after {
+  .nav a:not(.nav-cta)::after {
     content:''; position:absolute; left:0; right:100%; bottom:-2px; height:1px;
     background: var(--ink); transition: right .4s cubic-bezier(.2,.9,.3,1);
   }
-  .nav a:hover::after { right: 0; }
+  .nav a:not(.nav-cta):hover::after { right: 0; }
   .nav-logo { display:flex; align-items:center; gap: 12px; }
   .nav-logo img { height: 56px; width: auto; }
   .nav-logo .marque {
