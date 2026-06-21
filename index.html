@@ -938,6 +938,47 @@
     .foot-row { grid-template-columns: 1fr 1fr; }
   }
 
+  /* ---------- FAQ ---------- */
+  .faq-sec { padding: 90px 0 110px; background: var(--paper); }
+  .faq-list { max-width: 880px; margin: 48px auto 0; }
+  .faq-item { border-top: 1px solid var(--rule); }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+  .faq-item summary {
+    list-style: none; cursor: pointer;
+    padding: 24px 48px 24px 0; position: relative;
+    font-family: 'Instrument Serif', serif; font-size: 23px; line-height: 1.2; color: var(--ink);
+    transition: color .2s ease;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--olive-dk); }
+  .faq-item summary::after {
+    content: '+'; position: absolute; right: 4px; top: 22px;
+    font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 300; line-height: 1;
+    color: var(--olive); transition: transform .3s ease;
+  }
+  .faq-item[open] summary::after { content: '–'; }
+  .faq-a { padding: 0 48px 26px 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.75; max-width: 66ch; }
+  @media (max-width: 720px) {
+    .faq-sec { padding: 64px 0 72px; }
+    .faq-item summary { font-size: 19px; padding-right: 40px; }
+  }
+
+  /* ---------- WhatsApp floating button ---------- */
+  .wa-float {
+    position: fixed; right: 22px; bottom: 22px; z-index: 90;
+    width: 58px; height: 58px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #25D366; color: #fff;
+    box-shadow: 0 10px 24px -6px rgba(0,0,0,0.4);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .wa-float:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 14px 28px -6px rgba(0,0,0,0.5); }
+  .wa-float svg { width: 31px; height: 31px; }
+  @media (max-width: 720px) {
+    .wa-float { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    .wa-float svg { width: 29px; height: 29px; }
+  }
+
   /* ---------- Reveal on scroll ---------- */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.2,.9,.3,1), transform .9s cubic-bezier(.2,.9,.3,1); }
   .reveal.in { opacity: 1; transform: none; }
@@ -1385,11 +1426,79 @@
   </div>
 </section>
 
+<!-- ======================== FAQ ======================== -->
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="chapter reveal">
+      <div class="chapter-tag">
+        <div class="chapter-num">VI.</div>
+        <div class="chapter-label">Good to Know — Questions &amp; Answers</div>
+      </div>
+      <div class="route-head">
+        <h2>Frequently asked <em>questions</em></h2>
+        <p>A few things worth knowing before your tuk tuk tour through Dubrovnik.</p>
+      </div>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>How many people can join one tuk tuk?</summary>
+        <div class="faq-a">Up to four guests per tuk tuk, so every tour stays private to your own group.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much does a tour cost?</summary>
+        <div class="faq-a">From €50 per guest, depending on which tour you choose. Get in touch and we'll give you an exact price for your group.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long do the tours last?</summary>
+        <div class="faq-a">Between 120 and 180 minutes, depending on the tour — from the Sightseeing and Golden Hour tours to the longer Dubrovnik Tale.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Where do the tours start?</summary>
+        <div class="faq-a">We meet near Pile Gate, by the entrance to the Old Town. We'll confirm the exact meeting point with you when you book.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Are the tours suitable for children and older guests?</summary>
+        <div class="faq-a">Yes. The tuk tuk is comfortable and there's very little walking, so the tours are easy and enjoyable for all ages.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What language are the tours in?</summary>
+        <div class="faq-a">Tours are guided in English by a friendly local who knows Dubrovnik inside out.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if the weather is bad?</summary>
+        <div class="faq-a">Our tuk tuks are covered, so a little rain is no problem. In case of heavy rain we'll gladly help you reschedule to another time.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I book?</summary>
+        <div class="faq-a">Send us a message through the form below or on WhatsApp, and we'll confirm your preferred date and time.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How many people can join one tuk tuk?", "acceptedAnswer": { "@type": "Answer", "text": "Up to four guests per tuk tuk, so every tour stays private to your own group." } },
+    { "@type": "Question", "name": "How much does a tour cost?", "acceptedAnswer": { "@type": "Answer", "text": "From €50 per guest, depending on which tour you choose. Get in touch and we'll give you an exact price for your group." } },
+    { "@type": "Question", "name": "How long do the tours last?", "acceptedAnswer": { "@type": "Answer", "text": "Between 120 and 180 minutes, depending on the tour." } },
+    { "@type": "Question", "name": "Where do the tours start?", "acceptedAnswer": { "@type": "Answer", "text": "We meet near Pile Gate, by the entrance to the Old Town. We'll confirm the exact meeting point with you when you book." } },
+    { "@type": "Question", "name": "Are the tours suitable for children and older guests?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tuk tuk is comfortable and there's very little walking, so the tours are easy and enjoyable for all ages." } },
+    { "@type": "Question", "name": "What language are the tours in?", "acceptedAnswer": { "@type": "Answer", "text": "Tours are guided in English by a friendly local who knows Dubrovnik inside out." } },
+    { "@type": "Question", "name": "What happens if the weather is bad?", "acceptedAnswer": { "@type": "Answer", "text": "Our tuk tuks are covered, so a little rain is no problem. In case of heavy rain we'll gladly help you reschedule to another time." } },
+    { "@type": "Question", "name": "How do I book?", "acceptedAnswer": { "@type": "Answer", "text": "Send us a message through the form on the website or on WhatsApp, and we'll confirm your preferred date and time." } }
+  ]
+}
+</script>
+
 <!-- ======================== INQUIRE ======================== -->
 <section class="inquire" id="contact">
   <div class="wrap inq-inner">
     <div class="inq-left reveal">
-      <div class="mono" style="color: rgba(243,237,225,0.55); margin-bottom: 20px;">VI · Inquire</div>
+      <div class="mono" style="color: rgba(243,237,225,0.55); margin-bottom: 20px;">VII · Inquire</div>
       <h2>Concierge <em>inquiry</em></h2>
       <p>
         (Please mention if you want a private tour in the message.) A member of our team will respond within 2 hours.
@@ -1446,6 +1555,11 @@
 </section>
 
 </main>
+
+<!-- Floating WhatsApp button -->
+<a class="wa-float" href="https://wa.me/385994418363?text=Hi%20Ragusa%20Tuk%20Tours%2C%20I'd%20like%20to%20ask%20about%20a%20tuk%20tuk%20tour%20in%20Dubrovnik." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <!-- ======================== FOOTER ======================== -->
 <footer class="bigmark">
