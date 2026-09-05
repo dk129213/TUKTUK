@@ -811,6 +811,21 @@
     .g8 { grid-column: span 6; grid-row: span 4; }
   }
 
+  /* Uniform grid for the professional photo set */
+  .gal-grid-pro {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .gal-grid-pro .gal-cell { aspect-ratio: 3 / 2; }
+  @media (max-width: 900px) {
+    .gal-grid-pro { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+  }
+  @media (max-width: 560px) {
+    .gal-grid-pro { grid-template-columns: 1fr; }
+  }
+
   /* =========================================================
      INQUIRY
      ========================================================= */
@@ -1422,6 +1437,18 @@
         <span class="num">Plate 08</span>
         <span class="cap">By the water's edge</span>
       </div>
+    </div>
+
+    <div class="gal-grid-pro reveal">
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-1.webp" alt="White electric tuk tuk at sunset above Dubrovnik Old Town" loading="lazy" decoding="async" /><span class="num">Plate 09</span><span class="cap">Golden hour at the viewpoint</span></div>
+      <div class="gal-cell"><img width="1400" height="813" src="assets/tuktuk-dubrovnik-2.webp" alt="Three Ragusa tuk tuks with guests watching the Dubrovnik sunset" loading="lazy" decoding="async" /><span class="num">Plate 10</span><span class="cap">The fleet at sunset</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-3.webp" alt="Tuk tuk parked at a viewpoint over Dubrovnik Old Town at golden hour" loading="lazy" decoding="async" /><span class="num">Plate 11</span><span class="cap">Above the Old Town</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-4.webp" alt="Tuk tuk driving the panoramic road above Dubrovnik" loading="lazy" decoding="async" /><span class="num">Plate 12</span><span class="cap">On the road</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-5.webp" alt="Tour guests overlooking Dubrovnik Old Town and harbour" loading="lazy" decoding="async" /><span class="num">Plate 13</span><span class="cap">Taking it all in</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-6.webp" alt="Couple watching the sunset beside the tuk tuk above Dubrovnik" loading="lazy" decoding="async" /><span class="num">Plate 14</span><span class="cap">A sunset for two</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-7.webp" alt="Family enjoying the view from the tuk tuk over Dubrovnik" loading="lazy" decoding="async" /><span class="num">Plate 15</span><span class="cap">Family moments</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-8.webp" alt="Electric tuk tuk overlooking Dubrovnik Old Town at sunset" loading="lazy" decoding="async" /><span class="num">Plate 16</span><span class="cap">Parked at the ridge</span></div>
+      <div class="gal-cell"><img width="1400" height="934" src="assets/tuktuk-dubrovnik-9.webp" alt="Ragusa tuk tuk at a Dubrovnik viewpoint at sunset" loading="lazy" decoding="async" /><span class="num">Plate 17</span><span class="cap">Ready to roll</span></div>
     </div>
   </div>
 </section>
